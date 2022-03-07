@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row pt-5 container-height reponsive-padding">
+    <ngx-charts-bubble-chart
+      (window:resize)="onResize($event)"
+      [view]="view"
+      scheme="cool"
+      [schemeType]="schemeType"
+      [results]="bubbleData"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [yScaleMin]="yScaleMin"
+      [yScaleMax]="yScaleMax"
+      [minRadius]="minRadius"
+      [maxRadius]="maxRadius"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      (deactivate)="onDeactivate($event)"
+    >
+    </ngx-charts-bubble-chart>
+  </div>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#F8991F"
+  type="ball-atom"
+  [fullScreen]="true"
+  ><p style="color: white">Please Wait</p></ngx-spinner
+>

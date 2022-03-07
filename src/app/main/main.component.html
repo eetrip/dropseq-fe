@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row">
+    <h2>scRNA_matrix_forDotPlot</h2>
+    <div class="d-md-flex container-height">
+      <app-side-menu
+        (checkBoxValue)="checkBoxValue($event)"
+        (dropDownValue)="dropDownValue($event)"
+      ></app-side-menu>
+      <app-bubble-chart
+        [dropDownValue]="dropDownSelctedValue"
+        [checkBoxValue]="checkBoxSelctedValue"
+      ></app-bubble-chart>
+    </div>
+  </div>
+</div>

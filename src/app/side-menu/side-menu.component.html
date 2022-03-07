@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row container-height">
+    <div
+      class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark side-menu-width"
+    >
+      <a
+        href="/"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+      >
+        <span class="fs-4"
+          >Explore Gene Expression in the Drop-seq dataset</span
+        >
+      </a>
+      <hr />
+      <section>
+        <label class="pb-3">Select cell types</label>
+        <div class="d-flex" *ngFor="let checkBoxVal of checkBox">
+          <div class="form-check checkbox-padding">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="flexCheckDefault"
+              [value]="checkBoxVal"
+              (click)="checkBoxChecked($event)"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              {{ checkBoxVal }}
+            </label>
+          </div>
+        </div>
+      </section>
+      <hr />
+      <section class="pt-2">
+        <label class="pb-3">Gene Names (minimum 2)</label>
+        <ng-select
+          [items]="options"
+          [virtualScroll]="true"
+          [loading]="loading"
+          bindLabel="name"
+          bindValue="name"
+          [multiple]="true"
+          [(ngModel)]="selectedOption"
+          (change)="dropDownValueChanged($event)"
+          (scrollToEnd)="scrollToEnd($event)"
+          [searchFn]="customSearchFn"
+          (keyup)="searchDropDown($event)"
+        ></ng-select>
+      </section>
+      <hr />
+      <section class="pt-4">
+        <label class="pb-3">Clusters visualized on t-SNE plot</label>
+        <img
+          class="img-background"
+          src="https://karthikshekhar.shinyapps.io/Bipolar/_w_2535a3a3/Bipolar_tsne.png"
+          height="250"
+          width="300"
+        />
+      </section>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#F8991F"
+  type="ball-atom"
+  [fullScreen]="true"
+  ><p style="color: white">Please Wait</p></ngx-spinner
+>
